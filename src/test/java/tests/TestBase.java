@@ -68,5 +68,6 @@ public class TestBase {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
+        Attach.addVideo();
     }
 }
