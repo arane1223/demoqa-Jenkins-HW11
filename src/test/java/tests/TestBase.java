@@ -5,8 +5,42 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import pages.RegistrationForm;
+import pages.components.RegistrationResultsComponent;
+
+import static utils.RandomUtils.*;
+import static utils.RandomUtils.getAddress;
+import static utils.RandomUtils.getBirthDay;
+import static utils.RandomUtils.getBirthMonth;
+import static utils.RandomUtils.getBirthYear;
+import static utils.RandomUtils.getCity;
+import static utils.RandomUtils.getGender;
+import static utils.RandomUtils.getHobbies;
+import static utils.RandomUtils.getNumber;
+import static utils.RandomUtils.getPicture;
+import static utils.RandomUtils.getState;
+import static utils.RandomUtils.getSubjects;
 
 public class TestBase {
+
+    RegistrationForm registrationPage = new RegistrationForm();
+    RegistrationResultsComponent registrationResults = new RegistrationResultsComponent();
+
+    String
+            firstName = getFirstName(),
+            lastName = getLastName(),
+            userEmail = getEmail(),
+            gender = getGender(),
+            userNumber = getNumber(),
+            birthDay = getBirthDay(getBirthMonth()),
+            birthMonth = getBirthMonth(),
+            birthYear = getBirthYear(),
+            subjects = getSubjects(),
+            hobbies = getHobbies(),
+            picture = getPicture(),
+            address = getAddress(),
+            state = getState(),
+            city = getCity(state);
 
     @BeforeAll
     static void setUp() {

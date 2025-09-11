@@ -3,34 +3,12 @@ package tests;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import pages.RegistrationForm;
-import pages.components.RegistrationResultsComponent;
 
 import static io.qameta.allure.Allure.step;
-import static utils.RandomUtils.*;
 
 @Tag("demoqa")
 @DisplayName("Тесты на заполнение Practice Form на DEMOQA")
 public class RegistrationWithRandomDataTest extends TestBase {
-
-    RegistrationForm registrationPage = new RegistrationForm();
-    RegistrationResultsComponent registrationResults = new RegistrationResultsComponent();
-
-    String
-            firstName = getFirstName(),
-            lastName = getLastName(),
-            userEmail = getEmail(),
-            gender = getGender(),
-            userNumber = getNumber(),
-            birthDay = getBirthDay(getBirthMonth()),
-            birthMonth = getBirthMonth(),
-            birthYear = getBirthYear(),
-            subjects = getSubjects(),
-            hobbies = getHobbies(),
-            picture = getPicture(),
-            address = getAddress(),
-            state = getState(),
-            city = getCity(state);
 
     @Test
     @DisplayName("При заполнении всех полей Practice Form на DEMOQA выйдет popup со значениями всех заполненных полей")
