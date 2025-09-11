@@ -1,11 +1,13 @@
 package tests;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationForm;
 import pages.components.RegistrationResultsComponent;
 
 import static utils.RandomUtils.*;
 
+@Tag("demoqa")
 public class RegistrationWithRandomDataTest extends TestBase {
 
     RegistrationForm registrationPage = new RegistrationForm();
