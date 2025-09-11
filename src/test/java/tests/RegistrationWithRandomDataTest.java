@@ -26,35 +26,35 @@ public class RegistrationWithRandomDataTest extends TestBase {
                     .deleteAdds();
         });
 
-        step ("Заполняем все поля формы случайными значениями и жмем на кнопу Submit", () -> {
+        step("Заполняем все поля формы случайными значениями и жмем на кнопу Submit", () -> {
             registrationPage
                     .setFirstName(firstName)
                     .setLastName(lastName)
                     .setEmail(userEmail)
                     .setGender(gender)
                     .setUserNumber(userNumber)
-                    .setDayOfBirthday(birthDay,birthMonth,birthYear)
+                    .setDayOfBirthday(birthDay, birthMonth, birthYear)
                     .setRandomSubjects(subjects)
                     .setHobbies(hobbies)
                     .setPicture(picture)
                     .setAddress(address)
-                    .setStateAndCity(state,city)
+                    .setStateAndCity(state, city)
                     .clickOnSubmit();
         });
 
         step("Проверяем, что появился popup с введенными значениями во всех полях", () -> {
             registrationResults
                     .checkFormVisible("Thanks for submitting the form")
-                    .checkFormResults("Student Name", firstName+" "+lastName)
+                    .checkFormResults("Student Name", firstName + " " + lastName)
                     .checkFormResults("Student Email", userEmail)
                     .checkFormResults("Gender", gender)
                     .checkFormResults("Mobile", userNumber)
                     .checkDateOfBirth(birthDay, birthMonth, birthYear)
                     .checkFormResults("Subjects", subjects)
-                    .checkFormResults("Hobbies",hobbies)
+                    .checkFormResults("Hobbies", hobbies)
                     .checkFormResults("Picture", picture)
                     .checkFormResults("Address", address)
-                    .checkFormResults("State and City",state+" "+city);
+                    .checkFormResults("State and City", state + " " + city);
         });
 
     }
@@ -66,7 +66,7 @@ public class RegistrationWithRandomDataTest extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "PracticeForm", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("При заполнении обязательных полей Practice Form на DEMOQA выйдет popup заполненными обязательными полями")
-    void minimalFillFormTest(){
+    void minimalFillFormTest() {
 
         step("Открываем страницу и удаляем рекламу", () -> {
             registrationPage
@@ -86,9 +86,9 @@ public class RegistrationWithRandomDataTest extends TestBase {
         step("Проверяем, что появился popup с введенными значениями во всех полях", () -> {
             registrationResults //проверки
                     .checkFormVisible("Thanks for submitting the form")
-                    .checkFormResults("Student Name", firstName+" "+lastName)
-                    .checkFormResults("Gender",gender)
-                    .checkFormResults("Mobile",userNumber);
+                    .checkFormResults("Student Name", firstName + " " + lastName)
+                    .checkFormResults("Gender", gender)
+                    .checkFormResults("Mobile", userNumber);
         });
     }
 
@@ -99,7 +99,7 @@ public class RegistrationWithRandomDataTest extends TestBase {
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "PracticeForm", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("При нажатии на кнопку Submit с пустыми полями, popup не появится")
-    void negativeFillFormTest(){
+    void negativeFillFormTest() {
 
         step("Открываем страницу и удаляем рекламу", () -> {
             registrationPage

@@ -30,45 +30,45 @@ public class RegistrationForm {
         return this;
     }
 
-    public RegistrationForm deleteAdds(){
+    public RegistrationForm deleteAdds() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
     }
 
-    public RegistrationForm setFirstName(String value){
+    public RegistrationForm setFirstName(String value) {
         firstNameInput.setValue(value);
         return this;
     }
 
-    public RegistrationForm setLastName(String value){
+    public RegistrationForm setLastName(String value) {
         lastNameInput.setValue(value);
         return this;
     }
 
-    public RegistrationForm setEmail(String email){
+    public RegistrationForm setEmail(String email) {
         userEmailInput.setValue(email);
         return this;
     }
 
-    public RegistrationForm setGender(String gender){
+    public RegistrationForm setGender(String gender) {
         genderWrapper.$(byText(gender)).click();
         return this;
     }
 
-    public RegistrationForm setUserNumber(String number){
+    public RegistrationForm setUserNumber(String number) {
         userNumberInput.setValue(number);
         return this;
     }
 
-    public RegistrationForm setDayOfBirthday(String day, String month, String year){
+    public RegistrationForm setDayOfBirthday(String day, String month, String year) {
         celendarInput.click();
         CalendarComponent celendarComponent = new CalendarComponent();
         celendarComponent.setDate(day, month, year);
         return this;
     }
 
-    public RegistrationForm setSubjects(String subject){
+    public RegistrationForm setSubjects(String subject) {
         subjectInput.setValue(subject).pressEnter();
         return this;
     }
@@ -88,14 +88,14 @@ public class RegistrationForm {
         return this;
     }
 
-    public RegistrationForm setHobbies(String hobbiesOne, String hobbiesTwo, String hobbiesThree){
+    public RegistrationForm setHobbies(String hobbiesOne, String hobbiesTwo, String hobbiesThree) {
         hobbiesWrapper.$(byText(hobbiesOne)).click();
         hobbiesWrapper.$(byText(hobbiesTwo)).click();
         hobbiesWrapper.$(byText(hobbiesThree)).click();
         return this;
     }
 
-    public RegistrationForm setRandomHobbies(String hobbies){
+    public RegistrationForm setRandomHobbies(String hobbies) {
         hobbiesWrapper.$(byText(hobbies)).click();
         return this;
     }
@@ -109,24 +109,24 @@ public class RegistrationForm {
         return this;
     }
 
-    public RegistrationForm setPicture(String fileName){
+    public RegistrationForm setPicture(String fileName) {
         uploadPicture.uploadFromClasspath(fileName);
         return this;
     }
 
-    public RegistrationForm setAddress(String adress){
+    public RegistrationForm setAddress(String adress) {
         adressInput.setValue(adress);
         return this;
     }
 
-    public RegistrationForm setStateAndCity (String state, String city){
+    public RegistrationForm setStateAndCity(String state, String city) {
 
         stateInput.setValue(state).pressEnter();
         cityInput.setValue(city).pressEnter();
         return this;
     }
 
-    public RegistrationForm clickOnSubmit(){
+    public RegistrationForm clickOnSubmit() {
         submitInput.click();
         return this;
     }

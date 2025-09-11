@@ -12,26 +12,26 @@ public class RegistrationResultsComponent {
             resultTitle = $("#example-modal-sizes-title-lg"),
             tableResponsive = $(".table-responsive");
 
-    public RegistrationResultsComponent checkFormVisible(String title){
+    public RegistrationResultsComponent checkFormVisible(String title) {
         resultTitle.shouldBe(visible).shouldHave(text(title));
         tableResponsive.scrollTo();
         return this;
     }
 
-    public RegistrationResultsComponent checkFormResults (String key, String resultValue){
+    public RegistrationResultsComponent checkFormResults(String key, String resultValue) {
         tableResponsive.$(byText(key)).parent()
                 .shouldHave(text(resultValue));
         return this;
     }
 
-    public RegistrationResultsComponent checkFormUnvisible (){
+    public RegistrationResultsComponent checkFormUnvisible() {
         resultTitle.shouldNotBe(visible);
         return this;
     }
 
-    public RegistrationResultsComponent checkDateOfBirth (String day, String month, String year){
+    public RegistrationResultsComponent checkDateOfBirth(String day, String month, String year) {
         tableResponsive.$(byText("Date of Birth")).parent()
-                .shouldHave(text(day+" "+month+","+year));
+                .shouldHave(text(day + " " + month + "," + year));
         return this;
     }
 }
