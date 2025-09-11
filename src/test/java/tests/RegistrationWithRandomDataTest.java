@@ -1,13 +1,18 @@
 package tests;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationForm;
 import pages.components.RegistrationResultsComponent;
 
+import static io.qameta.allure.Allure.step;
 import static utils.RandomUtils.*;
 
 @Tag("demoqa")
+@DisplayName("Тесты на заполнение Practice Form на DEMOQA")
 public class RegistrationWithRandomDataTest extends TestBase {
 
     RegistrationForm registrationPage = new RegistrationForm();
@@ -30,63 +35,95 @@ public class RegistrationWithRandomDataTest extends TestBase {
             city = getCity(state);
 
     @Test
+    @DisplayName("При заполнении всех полей Practice Form на DEMOQA выйдет popup со значениями всех заполненных полей")
     void fullFillFormTest() {
-        registrationPage
-                .openPage()
-                .deleteAdds()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setEmail(userEmail)
-                .setGender(gender)
-                .setUserNumber(userNumber)
-                .setDayOfBirthday(birthDay,birthMonth,birthYear)
-                .setRandomSubjects(subjects)
-                .setHobbies(hobbies)
-                .setPicture(picture)
-                .setAddress(address)
-                .setStateAndCity(state,city)
-                .clickOnSubmit();
 
-        registrationResults //проверки
-                .checkFormVisible("Thanks for submitting the form")
-                .checkFormResults("Student Name", firstName+" "+lastName)
-                .checkFormResults("Student Email", userEmail)
-                .checkFormResults("Gender", gender)
-                .checkFormResults("Mobile", userNumber)
-                .checkDateOfBirth(birthDay, birthMonth, birthYear)
-                .checkFormResults("Subjects", subjects)
-                .checkFormResults("Hobbies",hobbies)
-                .checkFormResults("Picture", picture)
-                .checkFormResults("Address", address)
-                .checkFormResults("State and City",state+" "+city);
+        step("Открываем страницу и удаляем рекламу", () -> {
+            registrationPage
+                    .openPage()
+                    .deleteAdds();
+        });
+
+        step ("Заполняем все поля формы случайными значениями и жмем на кнопу Submit", () -> {
+            registrationPage
+                    .setFirstName(firstName)
+                    .setLastName(lastName)
+                    .setEmail(userEmail)
+                    .setGender(gender)
+                    .setUserNumber(userNumber)
+                    .setDayOfBirthday(birthDay,birthMonth,birthYear)
+                    .setRandomSubjects(subjects)
+                    .setHobbies(hobbies)
+                    .setPicture(picture)
+                    .setAddress(address)
+                    .setStateAndCity(state,city)
+                    .clickOnSubmit();
+        });
+
+        step("Проверяем, что появился popup с введенными значениями во всех полях", () -> {
+            registrationResults
+                    .checkFormVisible("Thanks for submitting the form")
+                    .checkFormResults("Student Name", firstName+" "+lastName)
+                    .checkFormResults("Student Email", userEmail)
+                    .checkFormResults("Gender", gender)
+                    .checkFormResults("Mobile", userNumber)
+                    .checkDateOfBirth(birthDay, birthMonth, birthYear)
+                    .checkFormResults("Subjects", subjects)
+                    .checkFormResults("Hobbies",hobbies)
+                    .checkFormResults("Picture", picture)
+                    .checkFormResults("Address", address)
+                    .checkFormResults("State and City",state+" "+city);
+        });
+
     }
 
     @Test
+    @DisplayName("При заполнении обязательных полей Practice Form на DEMOQA выйдет popup заполненными обязательными полями")
     void minimalFillFormTest(){
-        registrationPage
-                .openPage()
-                .deleteAdds()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setGender(gender)
-                .setUserNumber(userNumber)
-                .clickOnSubmit();
 
-        registrationResults //проверки
-                .checkFormVisible("Thanks for submitting the form")
-                .checkFormResults("Student Name", firstName+" "+lastName)
-                .checkFormResults("Gender",gender)
-                .checkFormResults("Mobile",userNumber);
+        step("Открываем страницу и удаляем рекламу", () -> {
+            registrationPage
+                    .openPage()
+                    .deleteAdds();
+        });
+
+        step("Заполняем обязательные поля и жмем на кнопу Submit", () -> {
+            registrationPage
+                    .setFirstName(firstName)
+                    .setLastName(lastName)
+                    .setGender(gender)
+                    .setUserNumber(userNumber)
+                    .clickOnSubmit();
+        });
+
+        step("Проверяем, что появился popup с введенными значениями во всех полях", () -> {
+            registrationResults //проверки
+                    .checkFormVisible("Thanks for submitting the form")
+                    .checkFormResults("Student Name", firstName+" "+lastName)
+                    .checkFormResults("Gender",gender)
+                    .checkFormResults("Mobile",userNumber);
+        });
     }
 
     @Test
+    @DisplayName("При нажатии на кнопку Submit с пустыми полями, popup не появится")
     void negativeFillFormTest(){
-        registrationPage
-                .openPage()
-                .deleteAdds()
-                .clickOnSubmit();
 
-        registrationResults
-                .checkFormUnvisible();
+        step("Открываем страницу и удаляем рекламу", () -> {
+            registrationPage
+                    .openPage()
+                    .deleteAdds();
+        });
+
+        step("Жмем на кнопу Submit", () -> {
+            registrationPage
+                    .clickOnSubmit();
+        });
+
+        step("Проверяем, что popup не появился", () -> {
+            registrationResults
+                    .checkFormUnvisible();
+        });
+
     }
 }
