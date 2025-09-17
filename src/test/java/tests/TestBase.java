@@ -60,7 +60,7 @@ public class TestBase {
         Configuration.pageLoadStrategy = "eager";
 //        String login = config.login();
 //        String password = config.password();
-        Configuration.remote= System.getProperty("remoteDriverUrl");
+        Configuration.remote = System.getProperty("remoteDriverUrl");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
