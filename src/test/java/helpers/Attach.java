@@ -15,8 +15,6 @@ import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class Attach {
 
-    static String propertyDriverUrl = System.getProperty("remoteDriverUrl");
-
     @Attachment(value = "{attachName}", type = "image/png")
     public static byte[] screenshotAs(String attachName) {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
@@ -47,6 +45,7 @@ public class Attach {
     }
 
     public static URL getVideoUrl() {
+        String propertyDriverUrl = System.getProperty("remoteDriverUrl");
         String videoUrl = "https://"+propertyDriverUrl+"/video/" + sessionId() + ".mp4";
         try {
             return new URL(videoUrl);
