@@ -16,6 +16,7 @@ import pages.components.RegistrationResultsComponent;
 
 import java.util.Map;
 
+import static com.codeborne.selenide.Configuration.*;
 import static utils.RandomUtils.*;
 import static utils.RandomUtils.getAddress;
 import static utils.RandomUtils.getBirthDay;
@@ -53,7 +54,9 @@ public class TestBase {
 
     @BeforeAll
     static void setUp() {
-        Configuration.browserSize = "1920x1080";
+        Configuration.browserSize = System.getProperty(browserSize);
+        Configuration.browser = System.getProperty(browser);
+        Configuration.browserVersion = System.getProperty(browserVersion);
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         String login = config.login();
