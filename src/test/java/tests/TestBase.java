@@ -33,7 +33,7 @@ public class TestBase {
 
     RegistrationForm registrationPage = new RegistrationForm();
     RegistrationResultsComponent registrationResults = new RegistrationResultsComponent();
-    static CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
+//    static CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
 
     String
             firstName = getFirstName(),
@@ -58,9 +58,9 @@ public class TestBase {
         Configuration.browserVersion = System.getProperty("browserVersion");
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        String login = config.login();
-        String password = config.password();
-        Configuration.remote = "https://"+login+":"+password+"@selenoid.autotests.cloud/wd/hub";
+//        String login = config.login();
+//        String password = config.password();
+        Configuration.remote= System.getProperty("remoteDriverUrl");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
