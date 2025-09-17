@@ -54,5 +54,4 @@ public class Attach {
         }
         return null;
     }
-    // вместо "selenoid.autotests.cloud" - String webDriverHost
 }
