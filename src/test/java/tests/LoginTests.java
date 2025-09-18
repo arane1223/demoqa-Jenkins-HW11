@@ -12,6 +12,7 @@ import org.junit.jupiter.params.provider.EnumSource;
 import static io.qameta.allure.Allure.step;
 
 @Tag("demoqa")
+@Tag("login")
 @DisplayName("Тесты на успешную авторизацию на DEMOQA")
 public class LoginTests extends TestBase {
 
