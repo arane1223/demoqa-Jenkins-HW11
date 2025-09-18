@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import static io.qameta.allure.Allure.step;
 
 @Tag("demoqa")
-@Tag("registration")
 @DisplayName("Тесты на заполнение Practice Form на DEMOQA")
 public class RegistrationFormTest extends TestBase {
 
