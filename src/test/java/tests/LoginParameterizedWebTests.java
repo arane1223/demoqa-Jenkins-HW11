@@ -33,12 +33,12 @@ public class LoginParameterizedWebTests extends TestBase {
                     .deleteAdd();
         });
 
-        step("Заходим по логину {0} и паролю {1} ", () -> {
+        step("Заходим по логину и паролю ", () -> {
             loginPage
                     .setUserNameAndPassword(userName, password);
         });
 
-        step("Проверяем, что в верхнем углу логин соответствует {0}", () -> {
+        step("Проверяем, что в верхнем углу логин соответствует", () -> {
             profilePage
                     .chekTableVisible()
                     .checkUsernameValue(userName);
@@ -61,12 +61,12 @@ public class LoginParameterizedWebTests extends TestBase {
                     .deleteAdd();
         });
 
-        step("Заходим по логину {0} и паролю {1} ", () -> {
+        step("Заходим по логину и паролю", () -> {
             loginPage
                     .setUserNameAndPassword(userName, password);
         });
 
-        step("Проверяем, что в верхнем углу логин соответствует {0}", () -> {
+        step("Проверяем, что в верхнем углу логин соответствует", () -> {
             profilePage
                     .chekTableVisible()
                     .checkUsernameValue(userName);
@@ -89,12 +89,12 @@ public class LoginParameterizedWebTests extends TestBase {
                     .deleteAdd();
         });
 
-        step("Заходим по данным юзера {0} из Enum", () -> {
+        step("Заходим по логину и паролю", () -> {
             loginPage
                     .setUserNameAndPassword(users.userName, users.password);
         });
 
-        step("Проверяем, что в верхнем углу логин соответствует {0}", () -> {
+        step("Проверяем, что в верхнем углу логин соответствует", () -> {
             profilePage
                     .chekTableVisible()
                     .checkUsernameValue(users.userName);

@@ -76,7 +76,7 @@ public class TextBoxTests extends TestBase {
                     .deleteAdds();
         });
 
-        step("Вводим данные с именем {0}, почтой {1}, адресами {2}, и жмем на Submit", () -> {
+        step("Вводим данные с именем, почтой, адресами, и жмем на Submit", () -> {
             textBox
                     .setUserName(userName)
                     .setUserEmail(userEmail)
@@ -84,7 +84,7 @@ public class TextBoxTests extends TestBase {
                     .clickOnSubmit();
         });
 
-        step("Проверяем, что появилось поле с именем {0}, почтой {1}, адресами {2}", () -> {
+        step("Проверяем, что появилось поле с такими же: именем, почтой, адресами", () -> {
             textBoxResults
                     .checkResults(userName, userEmail,
                             addresses);
