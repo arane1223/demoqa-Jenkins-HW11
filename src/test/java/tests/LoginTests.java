@@ -13,7 +13,7 @@ import static io.qameta.allure.Allure.step;
 
 @Tag("demoqa")
 @DisplayName("Тесты на успешную авторизацию на DEMOQA")
-public class LoginParameterizedWebTests extends TestBase {
+public class LoginTests extends TestBase {
 
     @DisplayName("Тесты на авторизацию с использованием @CsvSource")
     @CsvSource(value = {
