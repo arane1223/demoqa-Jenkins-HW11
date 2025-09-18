@@ -114,8 +114,8 @@ public class RegistrationForm {
         return this;
     }
 
-    public RegistrationForm setAddress(String adress) {
-        adressInput.setValue(adress);
+    public RegistrationForm setAddress(String address) {
+        adressInput.setValue(address);
         return this;
     }
 

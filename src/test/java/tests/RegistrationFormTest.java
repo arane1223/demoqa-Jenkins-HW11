@@ -9,7 +9,7 @@ import static io.qameta.allure.Allure.step;
 
 @Tag("demoqa")
 @DisplayName("Тесты на заполнение Practice Form на DEMOQA")
-public class RegistrationWithRandomDataTest extends TestBase {
+public class RegistrationFormTest extends TestBase {
 
     @Test
     @Feature("Заполнение Practice Form")
