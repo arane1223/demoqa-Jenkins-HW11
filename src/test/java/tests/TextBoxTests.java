@@ -4,6 +4,12 @@ import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.List;
+import java.util.stream.Stream;
 
 import static io.qameta.allure.Allure.step;
 
@@ -13,11 +19,11 @@ public class TextBoxTests extends TestBase {
 
     @Test
     @Feature("Заполнение Text Box")
-    @Story("Заполнение всех полей")
+    @Story("Заполнение всех полей с помощью библиотеки Faker")
     @Owner("sergeyglukhov")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "TextBox", url = "https://demoqa.com/text-box")
-    @DisplayName("При заполнении всех полей Text Box на DEMOQA отобразятся те же данные под формой после нажатия на Submit")
+    @DisplayName("Тест на заполнении Text Box формы на DEMOQA с помощью Faker")
     void fillFormTest() {
 
         step("Открываем страницу и удаляем рекламу", () -> {
@@ -38,6 +44,50 @@ public class TextBoxTests extends TestBase {
             textBoxResults
                     .checkResults(firstName, userEmail,
                             address, secondAddress);
+        });
+    }
+
+    static Stream<Arguments> fillingFormWithMethodSourceParametrizeTest(){
+        return Stream.of(
+                Arguments.of(
+                        "Alex",
+                        "alex@egorov.com",
+                        List.of("Some street 1", "Another street 1")),
+                Arguments.of(
+                        "Bob",
+                        "Bob@gmail.com",
+                        List.of("London", "Baker street 231"))
+        );
+    }
+
+    @Feature("Заполнение Text Box")
+    @Story("Заполнение всех полей с помощью @MethodSource")
+    @Owner("sergeyglukhov")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "TextBox", url = "https://demoqa.com/text-box")
+    @DisplayName("Тест на заполнение Text Box формы с помощью @MethodSource")
+    @MethodSource
+    @ParameterizedTest(name = "Заполнение формы с именем {0}, почтой {1}, адресами {2}")
+    void fillingFormWithMethodSourceParametrizeTest(String userName, String userEmail,
+                                                    List<String> addresses) {
+        step("Открываем страницу и удаляем рекламу", () -> {
+            textBox
+                    .openPage()
+                    .deleteAdds();
+        });
+
+        step("Вводим данные с именем {0}, почтой {1}, адресами {2}, и жмем на Submit", () -> {
+            textBox
+                    .setUserName(userName)
+                    .setUserEmail(userEmail)
+                    .setAllAddresses(addresses)
+                    .clickOnSubmit();
+        });
+
+        step("Проверяем, что появилось поле с именем {0}, почтой {1}, адресами {2}", () -> {
+            textBoxResults
+                    .checkResults(userName, userEmail,
+                            addresses);
         });
     }
 }

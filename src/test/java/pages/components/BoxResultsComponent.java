@@ -2,6 +2,8 @@ package pages.components;
 
 import com.codeborne.selenide.SelenideElement;
 
+import java.util.List;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -18,6 +20,15 @@ public class BoxResultsComponent {
         emailCheck.shouldHave(text(email));
         currentAddressCheck.shouldHave(text(currentAddress));
         permanentAddressCheck.shouldHave(text(permanentAddress));
+        return this;
+    }
+
+    public BoxResultsComponent checkResults(String name, String email,
+                                            List<String> address) {
+        nameCheck.shouldHave(text(name));
+        emailCheck.shouldHave(text(email));
+        currentAddressCheck.shouldHave(text(address.get(0)));
+        permanentAddressCheck.shouldHave(text(address.get(1)));
         return this;
     }
 }

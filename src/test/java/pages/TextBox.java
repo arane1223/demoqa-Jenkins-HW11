@@ -2,6 +2,8 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 
+import java.util.List;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class TextBox {
@@ -36,6 +38,12 @@ public class TextBox {
     public TextBox setAllAddresses (String current, String permanent){
         currentAddressInput.setValue(current);
         permanentAddressInput.setValue(permanent);
+        return this;
+    }
+
+    public TextBox setAllAddresses (List<String> address) {
+        currentAddressInput.setValue(address.get(0));
+        permanentAddressInput.setValue(address.get(1));
         return this;
     }
 
