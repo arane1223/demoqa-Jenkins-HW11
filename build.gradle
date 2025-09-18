@@ -54,3 +54,21 @@ task demoqa_test(type: Test) {
         includeTags("demoqa")
     }
 }
+
+task login_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("login")
+    }
+}
+
+task registration_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("registration")
+    }
+}
+
+task box_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("box")
+    }
+}
