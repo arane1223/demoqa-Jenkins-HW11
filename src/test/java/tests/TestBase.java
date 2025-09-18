@@ -61,7 +61,7 @@ public class TestBase {
         String login = config.login();
         String password = config.password();
         String webDriverHost = System.getProperty("webDriverHost");
-        Configuration.remote = "https://"+login+":"+password+"@"+webDriverHost+"/wd/hub";
+        Configuration.remote = "https://" + login + ":" + password + "@" + webDriverHost + "/wd/hub";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
