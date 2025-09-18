@@ -11,6 +11,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import pages.LoginPage;
+import pages.ProfilePage;
 import pages.RegistrationForm;
 import pages.TextBox;
 import pages.components.BoxResultsComponent;
@@ -38,6 +40,8 @@ public class TestBase {
     TextBox textBox = new TextBox();
     BoxResultsComponent textBoxResults = new BoxResultsComponent();
     static CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
+    LoginPage loginPage = new LoginPage();
+    ProfilePage profilePage = new ProfilePage();
 
     String
             firstName = getFirstName(),
