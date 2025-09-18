@@ -14,6 +14,7 @@ import java.util.stream.Stream;
 import static io.qameta.allure.Allure.step;
 
 @Tag("demoqa")
+@Tag("box")
 @DisplayName("Тест на заполнение Text Box на DEMOQA")
 public class TextBoxTests extends TestBase {
 
