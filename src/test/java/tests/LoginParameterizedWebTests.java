@@ -41,8 +41,8 @@ public class LoginParameterizedWebTests extends TestBase {
         step("Проверяем, что в верхнем углу логин соответствует {0}", () -> {
             profilePage
                     .chekTableVisible()
-                    .checkUsernameValue(userName)
-                    .logOut();
+                    .checkUsernameValue(userName);
+//                    .logOut();
         });
     }
 
@@ -70,14 +70,19 @@ public class LoginParameterizedWebTests extends TestBase {
         step("Проверяем, что в верхнем углу логин соответствует {0}", () -> {
             profilePage
                     .chekTableVisible()
-                    .checkUsernameValue(userName)
-                    .logOut();
+                    .checkUsernameValue(userName);
+//                    .logOut();
         });
     }
 
     @DisplayName("Тесты на авторизацию с использованием @EnumSource")
     @EnumSource(Users.class)
     @ParameterizedTest(name = "Залогиниться на DEMOQA с данными юзера {0}")
+    @Feature("Вход по логину и паролю")
+    @Story("Вход с использованием @EnumSource")
+    @Owner("sergeyglukhov")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link(value = "Login", url = "https://demoqa.com/login")
     void successfulLoginOnDemoqaWithEnumTest(Users users) {
 
         step("Открываем страницу и удаляем рекламу", () -> {
@@ -94,8 +99,8 @@ public class LoginParameterizedWebTests extends TestBase {
         step("Проверяем, что в верхнем углу логин соответствует {0}", () -> {
             profilePage
                     .chekTableVisible()
-                    .checkUsernameValue(users.userName)
-                    .logOut();
+                    .checkUsernameValue(users.userName);
+//                    .logOut();
         });
     }
 }
