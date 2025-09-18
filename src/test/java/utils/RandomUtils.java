@@ -67,6 +67,10 @@ public class RandomUtils {
         return faker.address().streetAddress();
     }
 
+    public static String getSecondAddress() {
+        return faker.address().streetAddress();
+    }
+
     public static String getState() {
         String[] state = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
         return faker.options().option(state);

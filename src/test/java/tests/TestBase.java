@@ -12,6 +12,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.RegistrationForm;
+import pages.TextBox;
+import pages.components.BoxResultsComponent;
 import pages.components.RegistrationResultsComponent;
 
 import java.util.Map;
@@ -33,6 +35,8 @@ public class TestBase {
 
     RegistrationForm registrationPage = new RegistrationForm();
     RegistrationResultsComponent registrationResults = new RegistrationResultsComponent();
+    TextBox textBox = new TextBox();
+    BoxResultsComponent textBoxResults = new BoxResultsComponent();
     static CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
 
     String
@@ -48,6 +52,7 @@ public class TestBase {
             hobbies = getHobbies(),
             picture = getPicture(),
             address = getAddress(),
+            secondAddress = getSecondAddress(),
             state = getState(),
             city = getCity(state);
 
