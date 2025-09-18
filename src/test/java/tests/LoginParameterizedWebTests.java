@@ -42,7 +42,6 @@ public class LoginParameterizedWebTests extends TestBase {
             profilePage
                     .chekTableVisible()
                     .checkUsernameValue(userName);
-//                    .logOut();
         });
     }
 
@@ -71,7 +70,6 @@ public class LoginParameterizedWebTests extends TestBase {
             profilePage
                     .chekTableVisible()
                     .checkUsernameValue(userName);
-//                    .logOut();
         });
     }
 
@@ -100,7 +98,6 @@ public class LoginParameterizedWebTests extends TestBase {
             profilePage
                     .chekTableVisible()
                     .checkUsernameValue(users.userName);
-//                    .logOut();
         });
     }
 }
