@@ -83,17 +83,25 @@ ${TASK}
 ## :point_up_2: Интеграция с Allure TestOps
 - ### Экран с результатами запуска тестов
 <p>
-<img title="Allure report suites" src="images/screenshots/allure-test-ops.png">
+<img title="Allure TestOps" src="images/screenshots/allure-test-ops.png">
 </p>
 
 - ### Страница с тестами в TestOps
 <p>
-<img title="Allure report suites" src="images/screenshots/allure-test-ops-tests.png">
+<img title="Allure test cases" src="images/screenshots/allure-test-ops-tests.png">
 </p>
 
 ## :point_up_2: Интеграция с Jira
 - ### Страница с задачей в Jira
+<p>
+<img title="Jira task description" src="images/screenshots/jira-task.png">
+<img title="Jira test-cases" src="images/screenshots/jira-allure-test-case.png">
+<img title="Jira test launches" src="images/screenshots/jira-allure-launches.png">
+</p>
 
 ## :point_up_2: Отчет в Telegram
+<p>
+<img title="Telegram" src="images/screenshots/Telegram.png">
+</p>
 
 ## :point_up_2: Видео примеры прохождения тестов
