@@ -1,5 +1,5 @@
 # Проект по автоматизации UI тестирования на DEMOQA
-<a href="https://demoqa.com/"><img width="30%" title="DEMOQA" src="icons/Toolsqa.jpg"></a>
+<a href="https://demoqa.com/"><img width="30%" title="DEMOQA" src="images/icons/Toolsqa.jpg"></a>
 
 ## :point_up: Структура:
 
