@@ -3,10 +3,8 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import config.CredentialsConfig;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,7 +37,6 @@ public class TestBase {
     RegistrationResultsComponent registrationResults = new RegistrationResultsComponent();
     TextBox textBox = new TextBox();
     BoxResultsComponent textBoxResults = new BoxResultsComponent();
-    static CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
     LoginPage loginPage = new LoginPage();
     ProfilePage profilePage = new ProfilePage();
 
@@ -65,12 +62,9 @@ public class TestBase {
         Configuration.browserSize = System.getProperty("browserSize");
         Configuration.browser = System.getProperty("browser");
         Configuration.browserVersion = System.getProperty("browserVersion");
-        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.baseUrl = System.getProperty("baseUrl");
         Configuration.pageLoadStrategy = "eager";
-        String login = config.login();
-        String password = config.password();
-        String webDriverHost = System.getProperty("webDriverHost");
-        Configuration.remote = "https://" + login + ":" + password + "@" + webDriverHost + "/wd/hub";
+        Configuration.remote = System.getProperty("remoteUrl");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
