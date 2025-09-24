@@ -9,13 +9,13 @@ import static io.qameta.allure.Allure.step;
 
 @Tag("demoqa")
 @Tag("registration")
+@Owner("sergeyglukhov")
 @DisplayName("Тесты на заполнение Practice Form на DEMOQA")
 public class RegistrationFormTest extends TestBase {
 
     @Test
     @Feature("Заполнение Practice Form")
     @Story("Заполнение всех полей")
-    @Owner("sergeyglukhov")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "PracticeForm", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("При заполнении всех полей Practice Form на DEMOQA выйдет popup со значениями всех заполненных полей")
@@ -63,7 +63,6 @@ public class RegistrationFormTest extends TestBase {
     @Test
     @Feature("Заполнение Practice Form")
     @Story("Заполнение обязательных полей")
-    @Owner("sergeyglukhov")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "PracticeForm", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("При заполнении обязательных полей Practice Form на DEMOQA выйдет popup заполненными обязательными полями")
@@ -96,7 +95,6 @@ public class RegistrationFormTest extends TestBase {
     @Test
     @Feature("Заполнение Practice Form")
     @Story("Отправка пустой формы")
-    @Owner("sergeyglukhov")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "PracticeForm", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("При нажатии на кнопку Submit с пустыми полями, popup не появится")

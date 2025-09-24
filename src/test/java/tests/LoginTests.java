@@ -13,6 +13,7 @@ import static io.qameta.allure.Allure.step;
 
 @Tag("demoqa")
 @Tag("login")
+@Owner("sergeyglukhov")
 @DisplayName("Тесты на успешную авторизацию на DEMOQA")
 public class LoginTests extends TestBase {
 
@@ -23,7 +24,6 @@ public class LoginTests extends TestBase {
     @ParameterizedTest(name = "Залогиниться на DEMOQA по логину {0} и паролю {1}")
     @Feature("Вход по логину и паролю")
     @Story("Вход с использованием @CsvSource")
-    @Owner("sergeyglukhov")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "Login", url = "https://demoqa.com/login")
     void successfulLoginOnDemoqaWithCsvSourceTest(String userName, String password) {
@@ -51,7 +51,6 @@ public class LoginTests extends TestBase {
     @ParameterizedTest(name = "Залогиниться на DEMOQA по логину {0} и паролю {1}")
     @Feature("Вход по логину и паролю")
     @Story("Вход с использованием @CsvFileSource")
-    @Owner("sergeyglukhov")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "Login", url = "https://demoqa.com/login")
     void successfulLoginOnDemoqaWithCsvFileSourceTest(String userName, String password) {
@@ -79,7 +78,6 @@ public class LoginTests extends TestBase {
     @ParameterizedTest(name = "Залогиниться на DEMOQA с данными юзера {0}")
     @Feature("Вход по логину и паролю")
     @Story("Вход с использованием @EnumSource")
-    @Owner("sergeyglukhov")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "Login", url = "https://demoqa.com/login")
     void successfulLoginOnDemoqaWithEnumTest(Users users) {

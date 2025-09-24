@@ -15,13 +15,13 @@ import static io.qameta.allure.Allure.step;
 
 @Tag("demoqa")
 @Tag("box")
+@Owner("sergeyglukhov")
 @DisplayName("Тест на заполнение Text Box на DEMOQA")
 public class TextBoxTests extends TestBase {
 
     @Test
     @Feature("Заполнение Text Box")
     @Story("Заполнение всех полей с помощью библиотеки Faker")
-    @Owner("sergeyglukhov")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "TextBox", url = "https://demoqa.com/text-box")
     @DisplayName("Тест на заполнении Text Box формы на DEMOQA с помощью Faker")
@@ -63,7 +63,6 @@ public class TextBoxTests extends TestBase {
 
     @Feature("Заполнение Text Box")
     @Story("Заполнение всех полей с помощью @MethodSource")
-    @Owner("sergeyglukhov")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "TextBox", url = "https://demoqa.com/text-box")
     @DisplayName("Тест на заполнение Text Box формы с помощью @MethodSource")
