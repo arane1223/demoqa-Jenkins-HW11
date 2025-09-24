@@ -64,9 +64,11 @@ gradle clean demoqa
 clean 
 ${TASK} 
 -Dbrowser=${BROWSER}
+-DbaseUrl=${BASE_URL}
 -DbrowserVersion=${BROWSER_VERSION}
 -DbrowserSize=${BROWSER_SIZE} 
 -DwebDriverHost=${WEB_DRIVER_HOST}
+-DremoteUrl=https://${AUTH}@${WEB_DRIVER_HOST}/wd/hub
 ```
 
 ## :point_up_2: Allure отчет
