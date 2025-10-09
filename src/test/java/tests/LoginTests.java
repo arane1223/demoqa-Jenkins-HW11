@@ -13,90 +13,64 @@ import static io.qameta.allure.Allure.step;
 
 @Tag("demoqa")
 @Tag("login")
+@Feature("Вход по логину и паролю")
 @Owner("sergeyglukhov")
 @DisplayName("Тесты на успешную авторизацию на DEMOQA")
 public class LoginTests extends TestBase {
 
-    @DisplayName("Тесты на авторизацию с использованием @CsvSource")
     @CsvSource(value = {
             "AlexTerrible, Qwer!1234",
             "arane1223, Arane@1223"})
     @ParameterizedTest(name = "Залогиниться на DEMOQA по логину {0} и паролю {1}")
-    @Feature("Вход по логину и паролю")
     @Story("Вход с использованием @CsvSource")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "Login", url = "https://demoqa.com/login")
+    @DisplayName("Тесты на авторизацию с использованием @CsvSource")
     void successfulLoginOnDemoqaWithCsvSourceTest(String userName, String password) {
 
-        step("Открываем страницу и удаляем рекламу", () -> {
-            loginPage
-                    .openPage()
-                    .deleteAdd();
-        });
+        step("Открываем страницу и удаляем рекламу", () ->
+                loginPage.openPage().deleteAdd());
 
-        step("Заходим по логину и паролю ", () -> {
-            loginPage
-                    .setUserNameAndPassword(userName, password);
-        });
+        step("Заходим по логину и паролю ", () ->
+                loginPage.setUserNameAndPassword(userName, password));
 
-        step("Проверяем, что в верхнем углу логин соответствует", () -> {
-            profilePage
-                    .chekTableVisible()
-                    .checkUsernameValue(userName);
-        });
+        step("Проверяем, что в верхнем углу логин соответствует", () ->
+                profilePage.chekTableVisible().checkUsernameValue(userName));
     }
 
-    @DisplayName("Тесты на авторизацию с использованием @CsvFileSource")
     @CsvFileSource(resources = "/LoginAndPassword.csv")
     @ParameterizedTest(name = "Залогиниться на DEMOQA по логину {0} и паролю {1}")
-    @Feature("Вход по логину и паролю")
     @Story("Вход с использованием @CsvFileSource")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "Login", url = "https://demoqa.com/login")
+    @DisplayName("Тесты на авторизацию с использованием @CsvFileSource")
     void successfulLoginOnDemoqaWithCsvFileSourceTest(String userName, String password) {
 
-        step("Открываем страницу и удаляем рекламу", () -> {
-            loginPage
-                    .openPage()
-                    .deleteAdd();
-        });
+        step("Открываем страницу и удаляем рекламу", () ->
+                loginPage.openPage().deleteAdd());
 
-        step("Заходим по логину и паролю", () -> {
-            loginPage
-                    .setUserNameAndPassword(userName, password);
-        });
+        step("Заходим по логину и паролю", () ->
+                loginPage.setUserNameAndPassword(userName, password));
 
-        step("Проверяем, что в верхнем углу логин соответствует", () -> {
-            profilePage
-                    .chekTableVisible()
-                    .checkUsernameValue(userName);
-        });
+        step("Проверяем, что в верхнем углу логин соответствует", () ->
+                profilePage.chekTableVisible().checkUsernameValue(userName));
     }
 
-    @DisplayName("Тесты на авторизацию с использованием @EnumSource")
     @EnumSource(Users.class)
     @ParameterizedTest(name = "Залогиниться на DEMOQA с данными юзера {0}")
-    @Feature("Вход по логину и паролю")
     @Story("Вход с использованием @EnumSource")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "Login", url = "https://demoqa.com/login")
+    @DisplayName("Тесты на авторизацию с использованием @EnumSource")
     void successfulLoginOnDemoqaWithEnumTest(Users users) {
 
-        step("Открываем страницу и удаляем рекламу", () -> {
-            loginPage
-                    .openPage()
-                    .deleteAdd();
-        });
+        step("Открываем страницу и удаляем рекламу", () ->
+                loginPage.openPage().deleteAdd());
 
-        step("Заходим по логину и паролю", () -> {
-            loginPage
-                    .setUserNameAndPassword(users.userName, users.password);
-        });
+        step("Заходим по логину и паролю", () ->
+                loginPage.setUserNameAndPassword(users.userName, users.password));
 
-        step("Проверяем, что в верхнем углу логин соответствует", () -> {
-            profilePage
-                    .chekTableVisible()
-                    .checkUsernameValue(users.userName);
-        });
+        step("Проверяем, что в верхнем углу логин соответствует", () ->
+                profilePage.chekTableVisible().checkUsernameValue(users.userName));
     }
 }

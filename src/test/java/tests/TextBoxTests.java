@@ -16,40 +16,33 @@ import static data.RegistrationData.*;
 
 @Tag("demoqa")
 @Tag("box")
+@Feature("Заполнение Text Box")
 @Owner("sergeyglukhov")
 @DisplayName("Тест на заполнение Text Box на DEMOQA")
 public class TextBoxTests extends TestBase {
 
     @Test
-    @Feature("Заполнение Text Box")
     @Story("Заполнение всех полей с помощью библиотеки Faker")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "TextBox", url = "https://demoqa.com/text-box")
     @DisplayName("Тест на заполнении Text Box формы на DEMOQA с помощью Faker")
     void fillFormTest() {
 
-        step("Открываем страницу и удаляем рекламу", () -> {
-            textBox
-                    .openPage()
-                    .deleteAdds();
-        });
+        step("Открываем страницу и удаляем рекламу", () ->
+                textBox.openPage().deleteAdds());
 
-        step("Заполняем форму и жмем на кнопку Submit", () -> {
-            textBox
-                    .setUserName(firstName)
-                    .setUserEmail(userEmail)
-                    .setAllAddresses(address, secondAddress)
-                    .clickOnSubmit();
-        });
+        step("Заполняем форму и жмем на кнопку Submit", () ->
+                textBox
+                        .setUserName(firstName)
+                        .setUserEmail(userEmail)
+                        .setAllAddresses(address, secondAddress)
+                        .clickOnSubmit());
 
-        step("Проверяем, что вывелись такие же данные, которые были введены", () -> {
-            textBoxResults
-                    .checkResults(firstName, userEmail,
-                            address, secondAddress);
-        });
+        step("Проверяем, что вывелись такие же данные, которые были введены", () ->
+                textBoxResults.checkResults(firstName, userEmail, address, secondAddress));
     }
 
-    static Stream<Arguments> fillingFormWithMethodSourceParametrizeTest(){
+    static Stream<Arguments> fillingFormWithMethodSourceParametrizeTest() {
         return Stream.of(
                 Arguments.of(
                         "Alex",
@@ -62,7 +55,6 @@ public class TextBoxTests extends TestBase {
         );
     }
 
-    @Feature("Заполнение Text Box")
     @Story("Заполнение всех полей с помощью @MethodSource")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "TextBox", url = "https://demoqa.com/text-box")
@@ -71,24 +63,17 @@ public class TextBoxTests extends TestBase {
     @DisplayName("Тест на заполнение Text Box формы с помощью @MethodSource")
     void fillingFormWithMethodSourceParametrizeTest(String userName, String userEmail,
                                                     List<String> addresses) {
-        step("Открываем страницу и удаляем рекламу", () -> {
-            textBox
-                    .openPage()
-                    .deleteAdds();
-        });
+        step("Открываем страницу и удаляем рекламу", () ->
+                textBox.openPage().deleteAdds());
 
-        step("Вводим данные с именем, почтой, адресами, и жмем на Submit", () -> {
-            textBox
-                    .setUserName(userName)
-                    .setUserEmail(userEmail)
-                    .setAllAddresses(addresses)
-                    .clickOnSubmit();
-        });
+        step("Вводим данные с именем, почтой, адресами, и жмем на Submit", () ->
+                textBox
+                        .setUserName(userName)
+                        .setUserEmail(userEmail)
+                        .setAllAddresses(addresses)
+                        .clickOnSubmit());
 
-        step("Проверяем, что появилось поле с такими же: именем, почтой, адресами", () -> {
-            textBoxResults
-                    .checkResults(userName, userEmail,
-                            addresses);
-        });
+        step("Проверяем, что появилось поле с такими же: именем, почтой, адресами", () ->
+                textBoxResults.checkResults(userName, userEmail, addresses));
     }
 }
