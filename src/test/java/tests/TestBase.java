@@ -18,19 +18,6 @@ import pages.components.RegistrationResultsComponent;
 
 import java.util.Map;
 
-import static utils.RandomUtils.*;
-import static utils.RandomUtils.getRandomAddress;
-import static utils.RandomUtils.getRandomBirthDay;
-import static utils.RandomUtils.getRandomBirthMonth;
-import static utils.RandomUtils.getRandomBirthYear;
-import static utils.RandomUtils.getRandomCity;
-import static utils.RandomUtils.getRandomGender;
-import static utils.RandomUtils.getRandomHobbies;
-import static utils.RandomUtils.getRandomNumber;
-import static utils.RandomUtils.getRandomPicture;
-import static utils.RandomUtils.getRandomState;
-import static utils.RandomUtils.getSubjects;
-
 public class TestBase {
 
     RegistrationForm registrationPage = new RegistrationForm();

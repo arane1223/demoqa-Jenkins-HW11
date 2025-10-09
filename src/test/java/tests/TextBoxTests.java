@@ -1,5 +1,6 @@
 package tests;
 
+import data.RegistrationData;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -12,7 +13,6 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static io.qameta.allure.Allure.step;
-import static data.RegistrationData.*;
 
 @Tag("demoqa")
 @Tag("box")
@@ -27,19 +27,20 @@ public class TextBoxTests extends TestBase {
     @Link(value = "TextBox", url = "https://demoqa.com/text-box")
     @DisplayName("Тест на заполнении Text Box формы на DEMOQA с помощью Faker")
     void fillFormTest() {
+        RegistrationData data = new RegistrationData();
 
         step("Открываем страницу и удаляем рекламу", () ->
                 textBox.openPage().deleteAdds());
 
         step("Заполняем форму и жмем на кнопку Submit", () ->
                 textBox
-                        .setUserName(firstName)
-                        .setUserEmail(userEmail)
-                        .setAllAddresses(address, secondAddress)
+                        .setUserName(data.firstName)
+                        .setUserEmail(data.userEmail)
+                        .setAllAddresses(data.address, data.secondAddress)
                         .clickOnSubmit());
 
         step("Проверяем, что вывелись такие же данные, которые были введены", () ->
-                textBoxResults.checkResults(firstName, userEmail, address, secondAddress));
+                textBoxResults.checkResults(data.firstName, data.userEmail, data.address, data.secondAddress));
     }
 
     static Stream<Arguments> fillingFormWithMethodSourceParametrizeTest() {
