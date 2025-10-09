@@ -46,7 +46,7 @@ public class RandomUtils {
         return String.valueOf(faker.number().numberBetween(1900, 2100));
     }
 
-    public static String getSubjects() {
+    public static String getRandomSubjects() {
         return faker.options().option("Maths", "Accounting", "Arts", "Social Studies", "Physics", "Chemistry",
                 "Computer Science", "Commerce", "Economics", "Civics", "English", "Hindi", "Biology", "History");
     }

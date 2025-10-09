@@ -3,7 +3,7 @@ package data;
 import static utils.RandomUtils.*;
 
 public class RegistrationData {
-    public static String
+    public String
             firstName = getRandomFirstName(),
             lastName = getRandomLastName(),
             userEmail = getRandomEmail(),
@@ -12,7 +12,7 @@ public class RegistrationData {
             birthDay = getRandomBirthDay(getRandomBirthMonth()),
             birthMonth = getRandomBirthMonth(),
             birthYear = getRandomBirthYear(),
-            subjects = getSubjects(),
+            subjects = getRandomSubjects(),
             hobbies = getRandomHobbies(),
             picture = getRandomPicture(),
             address = getRandomAddress(),

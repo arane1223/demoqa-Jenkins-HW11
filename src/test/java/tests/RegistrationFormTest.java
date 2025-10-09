@@ -1,11 +1,11 @@
 package tests;
 
+import data.RegistrationData;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static data.RegistrationData.*;
 import static io.qameta.allure.Allure.step;
 
 @Tag("demoqa")
@@ -21,38 +21,39 @@ public class RegistrationFormTest extends TestBase {
     @Link(value = "PracticeForm", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("При заполнении всех полей Practice Form на DEMOQA выйдет popup со значениями всех заполненных полей")
     void fullFillFormTest() {
+        RegistrationData data = new RegistrationData();
 
         step("Открываем страницу и удаляем рекламу", () ->
                 registrationPage.openPage().deleteAdds());
 
         step("Заполняем все поля формы случайными значениями и жмем на кнопу Submit", () ->
                 registrationPage
-                        .setFirstName(firstName)
-                        .setLastName(lastName)
-                        .setEmail(userEmail)
-                        .setGender(gender)
-                        .setUserNumber(userNumber)
-                        .setDayOfBirthday(birthDay, birthMonth, birthYear)
-                        .setRandomSubjects(subjects)
-                        .setHobbies(hobbies)
-                        .setPicture(picture)
-                        .setAddress(address)
-                        .setStateAndCity(state, city)
+                        .setFirstName(data.firstName)
+                        .setLastName(data.lastName)
+                        .setEmail(data.userEmail)
+                        .setGender(data.gender)
+                        .setUserNumber(data.userNumber)
+                        .setDayOfBirthday(data.birthDay, data.birthMonth, data.birthYear)
+                        .setRandomSubjects(data.subjects)
+                        .setHobbies(data.hobbies)
+                        .setPicture(data.picture)
+                        .setAddress(data.address)
+                        .setStateAndCity(data.state, data.city)
                         .clickOnSubmit());
 
         step("Проверяем, что появился popup с введенными значениями во всех полях", () ->
                 registrationResults
                         .checkFormVisible("Thanks for submitting the form")
-                        .checkFormResults("Student Name", firstName + " " + lastName)
-                        .checkFormResults("Student Email", userEmail)
-                        .checkFormResults("Gender", gender)
-                        .checkFormResults("Mobile", userNumber)
-                        .checkDateOfBirth(birthDay, birthMonth, birthYear)
-                        .checkFormResults("Subjects", subjects)
-                        .checkFormResults("Hobbies", hobbies)
-                        .checkFormResults("Picture", picture)
-                        .checkFormResults("Address", address)
-                        .checkFormResults("State and City", state + " " + city));
+                        .checkFormResults("Student Name", data.firstName + " " + data.lastName)
+                        .checkFormResults("Student Email", data.userEmail)
+                        .checkFormResults("Gender", data.gender)
+                        .checkFormResults("Mobile", data.userNumber)
+                        .checkDateOfBirth(data.birthDay, data.birthMonth, data.birthYear)
+                        .checkFormResults("Subjects", data.subjects)
+                        .checkFormResults("Hobbies", data.hobbies)
+                        .checkFormResults("Picture", data.picture)
+                        .checkFormResults("Address", data.address)
+                        .checkFormResults("State and City", data.state + " " + data.city));
     }
 
     @Test
@@ -61,24 +62,25 @@ public class RegistrationFormTest extends TestBase {
     @Link(value = "PracticeForm", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("При заполнении обязательных полей Practice Form на DEMOQA выйдет popup заполненными обязательными полями")
     void minimalFillFormTest() {
+        RegistrationData data = new RegistrationData();
 
         step("Открываем страницу и удаляем рекламу", () ->
                 registrationPage.openPage().deleteAdds());
 
         step("Заполняем обязательные поля и жмем на кнопу Submit", () ->
                 registrationPage
-                        .setFirstName(firstName)
-                        .setLastName(lastName)
-                        .setGender(gender)
-                        .setUserNumber(userNumber)
+                        .setFirstName(data.firstName)
+                        .setLastName(data.lastName)
+                        .setGender(data.gender)
+                        .setUserNumber(data.userNumber)
                         .clickOnSubmit());
 
         step("Проверяем, что появился popup с введенными значениями во всех полях", () ->
                 registrationResults
                         .checkFormVisible("Thanks for submitting the form")
-                        .checkFormResults("Student Name", firstName + " " + lastName)
-                        .checkFormResults("Gender", gender)
-                        .checkFormResults("Mobile", userNumber));
+                        .checkFormResults("Student Name", data.firstName + " " + data.lastName)
+                        .checkFormResults("Gender", data.gender)
+                        .checkFormResults("Mobile", data.userNumber));
     }
 
     @Test
