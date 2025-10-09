@@ -6,33 +6,33 @@ public class RandomUtils {
 
     public static Faker faker = new Faker();
 
-    public static String getFirstName() {
+    public static String getRandomFirstName() {
         return faker.name().firstName();
     }
 
-    public static String getLastName() {
+    public static String getRandomLastName() {
         return faker.name().lastName();
     }
 
-    public static String getEmail() {
+    public static String getRandomEmail() {
         return faker.internet().emailAddress();
     }
 
-    public static String getGender() {
+    public static String getRandomGender() {
         return faker.options().option("Male", "Female", "Other");
     }
 
-    public static String getNumber() {
+    public static String getRandomNumber() {
         return faker.number().digits(10);
     }
 
-    public static String getBirthMonth() {
+    public static String getRandomBirthMonth() {
         String[] month = {"January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"};
         return faker.options().option(month);
     }
 
-    public static String getBirthDay(String month) {
+    public static String getRandomBirthDay(String month) {
         return switch (month) {
             case "January", "March", "May", "July", "August", "October", "December" ->
                     String.valueOf(faker.number().numberBetween(1, 31));
@@ -42,7 +42,7 @@ public class RandomUtils {
         };
     }
 
-    public static String getBirthYear() {
+    public static String getRandomBirthYear() {
         return String.valueOf(faker.number().numberBetween(1900, 2100));
     }
 
@@ -51,11 +51,11 @@ public class RandomUtils {
                 "Computer Science", "Commerce", "Economics", "Civics", "English", "Hindi", "Biology", "History");
     }
 
-    public static String getHobbies() {
+    public static String getRandomHobbies() {
         return faker.options().option("Sports", "Reading", "Music");
     }
 
-    public static String getPicture() {
+    public static String getRandomPicture() {
         return faker.options().option(
                 "cyberpunk_1.jpeg",
                 "cyberpunk_2.jpeg",
@@ -63,20 +63,20 @@ public class RandomUtils {
                 "cyberpunk_4.jpeg");
     }
 
-    public static String getAddress() {
+    public static String getRandomAddress() {
         return faker.address().streetAddress();
     }
 
-    public static String getSecondAddress() {
+    public static String getRandomSecondAddress() {
         return faker.address().streetAddress();
     }
 
-    public static String getState() {
+    public static String getRandomState() {
         String[] state = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
         return faker.options().option(state);
     }
 
-    public static String getCity(String state) {
+    public static String getRandomCity(String state) {
         return switch (state) {
             case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
             case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Merrut");

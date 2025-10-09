@@ -19,16 +19,16 @@ import pages.components.RegistrationResultsComponent;
 import java.util.Map;
 
 import static utils.RandomUtils.*;
-import static utils.RandomUtils.getAddress;
-import static utils.RandomUtils.getBirthDay;
-import static utils.RandomUtils.getBirthMonth;
-import static utils.RandomUtils.getBirthYear;
-import static utils.RandomUtils.getCity;
-import static utils.RandomUtils.getGender;
-import static utils.RandomUtils.getHobbies;
-import static utils.RandomUtils.getNumber;
-import static utils.RandomUtils.getPicture;
-import static utils.RandomUtils.getState;
+import static utils.RandomUtils.getRandomAddress;
+import static utils.RandomUtils.getRandomBirthDay;
+import static utils.RandomUtils.getRandomBirthMonth;
+import static utils.RandomUtils.getRandomBirthYear;
+import static utils.RandomUtils.getRandomCity;
+import static utils.RandomUtils.getRandomGender;
+import static utils.RandomUtils.getRandomHobbies;
+import static utils.RandomUtils.getRandomNumber;
+import static utils.RandomUtils.getRandomPicture;
+import static utils.RandomUtils.getRandomState;
 import static utils.RandomUtils.getSubjects;
 
 public class TestBase {
@@ -39,23 +39,6 @@ public class TestBase {
     BoxResultsComponent textBoxResults = new BoxResultsComponent();
     LoginPage loginPage = new LoginPage();
     ProfilePage profilePage = new ProfilePage();
-
-    String
-            firstName = getFirstName(),
-            lastName = getLastName(),
-            userEmail = getEmail(),
-            gender = getGender(),
-            userNumber = getNumber(),
-            birthDay = getBirthDay(getBirthMonth()),
-            birthMonth = getBirthMonth(),
-            birthYear = getBirthYear(),
-            subjects = getSubjects(),
-            hobbies = getHobbies(),
-            picture = getPicture(),
-            address = getAddress(),
-            secondAddress = getSecondAddress(),
-            state = getState(),
-            city = getCity(state);
 
     @BeforeAll
     static void setUp() {

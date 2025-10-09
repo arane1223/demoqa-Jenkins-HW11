@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static io.qameta.allure.Allure.step;
+import static data.RegistrationData.*;
 
 @Tag("demoqa")
 @Tag("box")
@@ -65,9 +66,9 @@ public class TextBoxTests extends TestBase {
     @Story("Заполнение всех полей с помощью @MethodSource")
     @Severity(SeverityLevel.BLOCKER)
     @Link(value = "TextBox", url = "https://demoqa.com/text-box")
-    @DisplayName("Тест на заполнение Text Box формы с помощью @MethodSource")
     @MethodSource
     @ParameterizedTest(name = "Заполнение формы с именем {0}, почтой {1}, адресами {2}")
+    @DisplayName("Тест на заполнение Text Box формы с помощью @MethodSource")
     void fillingFormWithMethodSourceParametrizeTest(String userName, String userEmail,
                                                     List<String> addresses) {
         step("Открываем страницу и удаляем рекламу", () -> {
